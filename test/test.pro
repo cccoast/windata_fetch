@@ -12,14 +12,25 @@ TARGET = test
 TEMPLATE = app
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    logindialog.cpp \
+    impl.cpp \
+    subdialog.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    logindialog.h \
+    impl.h \
+    src/ini_parser.hpp \
+    src/misc.h \
+    subdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    logindialog.ui \
+    subdialog.ui
 
 DISTFILES += \
-    myapp.rc
+    myapp.rc \
+    config.ini
 
 TRANSLATIONS += cn.ts
 

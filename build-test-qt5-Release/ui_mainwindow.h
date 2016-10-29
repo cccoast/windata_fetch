@@ -26,6 +26,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionLogin;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menuMain;
@@ -38,6 +39,8 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(891, 414);
+        actionLogin = new QAction(MainWindow);
+        actionLogin->setObjectName(QStringLiteral("actionLogin"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
@@ -58,6 +61,7 @@ public:
 
         menuBar->addAction(menuMain->menuAction());
         menuBar->addAction(menuOption->menuAction());
+        menuMain->addAction(actionLogin);
 
         retranslateUi(MainWindow);
 
@@ -67,6 +71,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        actionLogin->setText(QApplication::translate("MainWindow", "login(&l)", 0));
         menuMain->setTitle(QApplication::translate("MainWindow", "main", 0));
         menuOption->setTitle(QApplication::translate("MainWindow", "option", 0));
     } // retranslateUi

@@ -27,6 +27,7 @@
     <property name="title">
      <string>main</string>
     </property>
+    <addaction name="actionLogin"/>
    </widget>
    <widget class="QMenu" name="menuOption">
     <property name="title">
@@ -45,6 +46,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionLogin">
+   <property name="text">
+    <string>login(&amp;l)</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
