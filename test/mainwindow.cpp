@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "logindialog.h"
+#include "subdialog.h"
 
 #include "impl.h"
 
@@ -15,10 +16,12 @@ QT_BEGIN_NAMESPACE
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    login(new loginDialog(this))
+    login(new loginDialog(this)),
+    subber(new subDialog(this))
 {
     ui->setupUi(this);
     QObject::connect(ui->actionLogin, SIGNAL(triggered()), this, SLOT(slotLoginDlg()));
+    QObject::connect(ui->actionSubscribe_s, SIGNAL(triggered()), this, SLOT(slotLoginDlg()));
 
     QObject::connect(this->login, SIGNAL(reqLogin()), this, SLOT(slotReqLogin()));
 }
@@ -43,7 +46,12 @@ void MainWindow::slotLoginDlg(){
     login->show();
 }
 
+
+//
 void MainWindow::slotReqLogin(){
+    ///
+
+    ///
     login->hide();
 }
 

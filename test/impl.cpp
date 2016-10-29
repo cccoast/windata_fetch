@@ -4,15 +4,27 @@
 
 #include "src/ini_parser.hpp"
 #include "src/misc.h"
+#include "src/CTPConnector/CTPConnector.hpp"
+#include "src/ShareMemory/ShmPool.hpp"
 
 #include <QString>
 #include <QDir>
 
 using namespace std;
 
-static string config_path("config.ini");
+static string config_path("account.ini");
+
+int fetcher_first_time;
+int fetcher_last_time;
 
 impl* impl::_instance = new impl;
+
+void impl::Init()
+{
+    _instance->is_connected = false;
+    newConnector = NULL;
+    ShmPool::Init();
+}
 
 int impl::initConfig(){
     config_path = directoryOf(".").absoluteFilePath("config.ini").toStdString();
@@ -43,4 +55,24 @@ int impl::saveConfig()
         reader.set_value("ctp_investor_id",_instance->account_config.investor_id,"account");
     }
     return 0;
+}
+
+void impl::ctpLogIn(bool day_mode)
+{
+    if(day_mode){
+        fetcher_first_time = 32400000;
+        fetcher_last_time  = 54000000;
+    }
+    else{
+        first_time = 75600000;
+        last_time  = 10800000;
+    }
+
+    _instance->newConnector = new CreateCTPConnector(_instance->account_config.ip,
+                                                     _instance->account_config.port,
+                                                     _instance->account_config.broker_id,
+                                                     _instance->account_config.investor_id
+                                                     );
+    _instance->newConnector->connectToServer();
+    //_instance->newConnector->reqSubInstrumentsList();
 }

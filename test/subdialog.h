@@ -2,6 +2,7 @@
 #define SUBDIALOG_H
 
 #include <QDialog>
+#include <QString>
 
 namespace Ui {
 class subDialog;
@@ -14,6 +15,10 @@ class subDialog : public QDialog
 public:
     explicit subDialog(QWidget *parent = 0);
     ~subDialog();
+    bool loadFile(QString);
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::subDialog *ui;

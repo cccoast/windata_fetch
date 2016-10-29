@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "logindialog.h"
+#include "subdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +24,7 @@ public slots:
 private:
     Ui::MainWindow *ui;
     loginDialog* login;
+    subDialog* subber;
 };
 
 #endif // MAINWINDOW_H

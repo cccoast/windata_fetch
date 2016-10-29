@@ -27,6 +27,7 @@ class Ui_MainWindow
 {
 public:
     QAction *actionLogin;
+    QAction *actionSubscribe_s;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menuMain;
@@ -41,6 +42,8 @@ public:
         MainWindow->resize(891, 414);
         actionLogin = new QAction(MainWindow);
         actionLogin->setObjectName(QStringLiteral("actionLogin"));
+        actionSubscribe_s = new QAction(MainWindow);
+        actionSubscribe_s->setObjectName(QStringLiteral("actionSubscribe_s"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
@@ -62,6 +65,7 @@ public:
         menuBar->addAction(menuMain->menuAction());
         menuBar->addAction(menuOption->menuAction());
         menuMain->addAction(actionLogin);
+        menuMain->addAction(actionSubscribe_s);
 
         retranslateUi(MainWindow);
 
@@ -72,6 +76,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         actionLogin->setText(QApplication::translate("MainWindow", "login(&l)", 0));
+        actionSubscribe_s->setText(QApplication::translate("MainWindow", "subscribe(&s)", 0));
         menuMain->setTitle(QApplication::translate("MainWindow", "main", 0));
         menuOption->setTitle(QApplication::translate("MainWindow", "option", 0));
     } // retranslateUi

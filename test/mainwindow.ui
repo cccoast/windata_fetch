@@ -28,6 +28,7 @@
      <string>main</string>
     </property>
     <addaction name="actionLogin"/>
+    <addaction name="actionSubscribe_s"/>
    </widget>
    <widget class="QMenu" name="menuOption">
     <property name="title">
@@ -49,6 +50,11 @@
   <action name="actionLogin">
    <property name="text">
     <string>login(&amp;l)</string>
+   </property>
+  </action>
+  <action name="actionSubscribe_s">
+   <property name="text">
+    <string>subscribe(&amp;s)</string>
    </property>
   </action>
  </widget>
